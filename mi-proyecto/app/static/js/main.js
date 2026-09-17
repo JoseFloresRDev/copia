@@ -2,17 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       MENÚ RESPONSIVE
+       MENÚ MÓVIL
     ====================================================== */
 
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".main-nav");
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    if (toggle && nav) {
 
-        toggle.addEventListener("click", () => {
+    if (menuButton && mobileMenu) {
 
-            nav.classList.toggle("nav-open");
+        menuButton.addEventListener("click", () => {
+
+            mobileMenu.classList.toggle("hidden");
 
         });
 
@@ -20,101 +21,98 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       SLIDER DEL HERO
+       SLIDER
     ====================================================== */
 
-    const slides = document.querySelectorAll(".hero-slider .slide");
+    const slides = document.querySelectorAll(".hero-slide");
     const dots = document.querySelectorAll(".slider-dot");
 
-    if (slides.length > 0) {
+    let currentSlide = 0;
 
-        let currentSlide = 0;
-        let sliderInterval;
-
-
-        /* -----------------------------------------------
-           CAMBIAR DE IMAGEN
-        ------------------------------------------------ */
-
-        function showSlide(index) {
-
-            slides.forEach((slide) => {
-                slide.classList.remove("active");
-            });
-
-            dots.forEach((dot) => {
-                dot.classList.remove("active");
-            });
+    const totalSlides = slides.length;
 
 
-            slides[index].classList.add("active");
+    function showSlide(index) {
 
-            if (dots[index]) {
-                dots[index].classList.add("active");
+        slides.forEach((slide, i) => {
+
+            if (i === index) {
+
+                slide.classList.remove("opacity-0");
+
+                slide.classList.add("opacity-100");
+
+            } else {
+
+                slide.classList.remove("opacity-100");
+
+                slide.classList.add("opacity-0");
+
             }
-
-            currentSlide = index;
-        }
-
-
-        /* -----------------------------------------------
-           SIGUIENTE IMAGEN
-        ------------------------------------------------ */
-
-        function nextSlide() {
-
-            let next = currentSlide + 1;
-
-            if (next >= slides.length) {
-                next = 0;
-            }
-
-            showSlide(next);
-        }
-
-
-        /* -----------------------------------------------
-           CAMBIO AUTOMÁTICO
-        ------------------------------------------------ */
-
-        function startSlider() {
-
-            sliderInterval = setInterval(() => {
-
-                nextSlide();
-
-            }, 5000);
-
-        }
-
-
-        /* -----------------------------------------------
-           BOTONES / PUNTOS
-        ------------------------------------------------ */
-
-        dots.forEach((dot, index) => {
-
-            dot.addEventListener("click", () => {
-
-                showSlide(index);
-
-                clearInterval(sliderInterval);
-
-                startSlider();
-
-            });
 
         });
 
 
-        /* -----------------------------------------------
-           INICIAR SLIDER
-        ------------------------------------------------ */
+        dots.forEach((dot, i) => {
 
-        showSlide(0);
+            if (i === index) {
 
-        startSlider();
+                dot.classList.remove("bg-white/40");
+
+                dot.classList.add("bg-white");
+
+            } else {
+
+                dot.classList.remove("bg-white");
+
+                dot.classList.add("bg-white/40");
+
+            }
+
+        });
 
     }
+
+
+    /* =====================================================
+       CAMBIO AUTOMÁTICO
+    ====================================================== */
+
+    if (totalSlides > 1) {
+
+        setInterval(() => {
+
+            currentSlide++;
+
+            if (currentSlide >= totalSlides) {
+
+                currentSlide = 0;
+
+            }
+
+            showSlide(currentSlide);
+
+        }, 5000);
+
+    }
+
+
+    /* =====================================================
+       BOTONES DEL SLIDER
+    ====================================================== */
+
+    dots.forEach((dot) => {
+
+        dot.addEventListener("click", () => {
+
+            currentSlide = Number(
+                dot.dataset.slide
+            );
+
+            showSlide(currentSlide);
+
+        });
+
+    });
 
 });
