@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}
+Contactos · Cooperativas Sais
+{% endblock %}
+
+
+{% block content %}
+
+<section class="pt-36 pb-20 bg-white">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="max-w-3xl">
+
+            <p class="text-[#163832] uppercase tracking-widest text-sm font-semibold">
+                Contáctanos
+            </p>
+
+            <h1 class="mt-3 text-5xl font-serif font-bold text-[#163832]">
+                Estamos para ayudarte
+            </h1>
+
+            <p class="mt-6 text-gray-600 leading-relaxed">
+
+                Si deseas conocer más sobre nuestra cooperativa,
+                nuestros productos o nuestras actividades,
+                puedes comunicarte con nosotros.
+
+            </p>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-10 mt-14">
+
+            <!-- INFORMACIÓN -->
+
+            <div class="bg-[#163832] rounded-3xl p-10 text-white">
+
+                <h2 class="text-2xl font-semibold">
+                    Información de contacto
+                </h2>
+
+
+                <div class="mt-8 space-y-6">
+
+                    <div>
+
+                        <p class="text-green-300 text-sm uppercase">
+                            Teléfono
+                        </p>
+
+                        <p class="mt-1">
+                            +51 000 000 000
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="text-green-300 text-sm uppercase">
+                            Correo
+                        </p>
+
+                        <p class="mt-1">
+                            contacto@cooperativassais.com
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="text-green-300 text-sm uppercase">
+                            Ubicación
+                        </p>
+
+                        <p class="mt-1">
+                            Matahuasi, Junín, Perú
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULARIO -->
+
+            <form class="space-y-5">
+
+                <div>
+
+                    <label class="block text-sm font-medium mb-2">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Tu nombre"
+                        class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-300"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="block text-sm font-medium mb-2">
+                        Correo
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="tu@email.com"
+                        class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-300"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="block text-sm font-medium mb-2">
+                        Mensaje
+                    </label>
+
+                    <textarea
+                        rows="5"
+                        placeholder="Escribe tu mensaje..."
+                        class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-300"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="bg-[#163832] text-white px-8 py-3 rounded-full font-semibold hover:bg-green-900 transition"
+                >
+                    Enviar mensaje
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

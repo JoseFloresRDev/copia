@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+Conoce Matahuasi · Cooperativas Sais
+{% endblock %}
+
+
+{% block content %}
+
+<section class="pt-36 pb-20 bg-white">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto">
+
+            <p class="text-[#163832] uppercase tracking-widest text-sm font-semibold">
+                Conoce nuestro territorio
+            </p>
+
+            <h1 class="mt-3 text-5xl font-serif font-bold text-[#163832]">
+                Conoce Matahuasi
+            </h1>
+
+            <p class="mt-6 text-gray-600 leading-relaxed text-lg">
+
+                Matahuasi forma parte del corazón del Centro del Perú,
+                una zona donde la agricultura y la actividad ganadera
+                representan una parte importante de la vida de sus
+                comunidades.
+
+            </p>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-10 mt-14 items-center">
+
+            <div>
+
+                <img
+                    src="{{ url_for('static', filename='img/1.jpeg') }}"
+                    alt="Matahuasi"
+                    class="w-full h-96 object-cover rounded-3xl"
+                >
+
+            </div>
+
+
+            <div>
+
+                <h2 class="text-3xl font-serif font-bold text-[#163832]">
+                    Tierra de productores
+                </h2>
+
+                <p class="mt-5 text-gray-600 leading-relaxed">
+
+                    Nuestro territorio reúne familias productoras que
+                    trabajan diariamente para mantener viva la actividad
+                    agropecuaria y aportar productos de calidad.
+
+                </p>
+
+                <p class="mt-4 text-gray-600 leading-relaxed">
+
+                    Conocer Matahuasi también significa conocer las
+                    personas, tradiciones y actividades que forman parte
+                    de nuestra identidad.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
