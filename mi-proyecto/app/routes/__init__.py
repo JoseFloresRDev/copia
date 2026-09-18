@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
 
-
 main_bp = Blueprint("main", __name__)
 
 
@@ -19,9 +18,9 @@ def conoce_matahuasi():
     return render_template("clientes/conoce.html")
 
 
-@main_bp.route("/datos")
-def datos():
-    return render_template("clientes/datos.html")
+@main_bp.route("/productos")
+def productos():
+    return render_template("clientes/productos.html")
 
 
 @main_bp.route("/contactos")
@@ -29,6 +28,6 @@ def contactos():
     return render_template("clientes/contactos.html")
 
 
-@main_bp.route("/productos")
-def productos():
-    return render_template("clientes/productos.html")
+@main_bp.route("/compra")
+def compra():
+    return render_template("clientes/compra.html")
