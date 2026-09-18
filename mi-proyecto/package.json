@@ -1,16 +1,13 @@
 {
   "name": "mi-proyecto",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Cooperativas Sais Capital Social",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx @tailwindcss/cli -i ./app/static/css/input.css -o ./app/static/css/tailwind.css --watch",
+    "build": "npx @tailwindcss/cli -i ./app/static/css/input.css -o ./app/static/css/tailwind.css --minify"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.3.3",
-    "tailwindcss": "^4.3.3"
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
   }
 }
