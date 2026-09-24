@@ -488,16 +488,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
         contactStep2.addEventListener(
             "submit",
-            (event) => {
-
+            async (event) => {
                 event.preventDefault();
 
-                contactStep2.classList.add("hidden");
+                const datos = {
+                    nombre: document.getElementById("contact-name").value.trim(),
+                    correo: document.getElementById("contact-email").value.trim(),
+                    telefono: document.getElementById("contact-phone").value.trim(),
+                    motivo: document.getElementById("contact-subject").value.trim(),
+                    mensaje: document.getElementById("contact-message").value.trim()
+                };
 
-                if (contactSuccess) {
-                    contactSuccess.classList.remove("hidden");
+                const boton = contactStep2.querySelector(
+                    'button[type="submit"]'
+                );
+
+                boton.disabled = true;
+                boton.textContent = "Enviando...";
+
+                try {
+                    const respuesta = await fetch("/contactos/registrar", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(datos)
+                    });
+
+                    const resultado = await respuesta.json();
+
+                    if (!respuesta.ok) {
+                        throw new Error(
+                            resultado.error || "No se pudo enviar el mensaje."
+                        );
+                    }
+
+                    contactStep2.classList.add("hidden");
+
+                    if (contactSuccess) {
+                        contactSuccess.classList.remove("hidden");
+                    }
+
+                } catch (error) {
+                    alert(error.message);
+                } finally {
+                    boton.disabled = false;
+                    boton.textContent = "Enviar mensaje";
                 }
-
             }
         );
 
